@@ -31,7 +31,7 @@
 (defun make-phony ()
   "Make the current Makefile target PHONY."
   (interactive)
-  (if (derived-mode-p 'makefile-gmake-mode)
+  (if (derived-mode-p 'makefile-gmake-mode 'makefile-bsdmake-mode)
       (save-excursion
         (setf (point) (point-at-bol))
         (if (looking-at "^\\([[:alnum:]]+\\):")
@@ -39,7 +39,7 @@
               (insert (format ".PHONY: %s" phony))
               (newline))
           (error "Can't see a target that should be phony")))
-    (error "This function is only designed for GNU Makefiles")))
+    (error "This function is only designed for Makefiles")))
 
 (provide 'make-phony)
 
