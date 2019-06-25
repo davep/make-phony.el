@@ -1,8 +1,8 @@
 ;;; make-phony.el --- Make a Makefile target PHONY -*- lexical-binding: t -*-
-;; Copyright 2018 by Dave Pearson <davep@davep.org>
+;; Copyright 2018-2019 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 1.1
+;; Version: 1.2
 ;; Keywords: convenience
 ;; URL: https://github.com/davep/make-phony.el
 ;; Package-Requires: ((emacs "24"))
