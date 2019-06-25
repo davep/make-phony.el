@@ -34,7 +34,7 @@
   (if (derived-mode-p 'makefile-gmake-mode 'makefile-bsdmake-mode)
       (save-excursion
         (setf (point) (point-at-bol))
-        (if (looking-at (rx bol (group (+ (not blank))) ":"))
+        (if (looking-at (rx bol (group (+ (not (any ":")))) ":"))
             (let ((phony (match-string 1)))
               (insert (format ".PHONY: %s" phony))
               (newline))
