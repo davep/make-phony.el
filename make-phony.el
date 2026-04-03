@@ -27,6 +27,13 @@
 
 ;;; Code:
 
+(defun make-phony--already (phony)
+  "Return non-nil if PHONY is already on the previous line."
+  (save-excursion
+    (forward-line -1)
+    (goto-char (line-beginning-position))
+    (looking-at phony)))
+
 ;;;###autoload
 (defun make-phony ()
   "Make the current Makefile target PHONY."
@@ -35,9 +42,9 @@
       (save-excursion
         (goto-char (line-beginning-position))
         (if (looking-at (rx bol (group (+ (not (any ":")))) ":"))
-            (let ((phony (match-string 1)))
-              (insert (format ".PHONY: %s" phony))
-              (newline))
+            (let ((phony (format ".PHONY: %s\n" (match-string 1))))
+              (unless (make-phony--already phony)
+                (insert phony)))
           (error "Can't see a target that should be .PHONY")))
     (error "This function is only designed for Makefiles")))
 
