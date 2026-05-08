@@ -45,8 +45,8 @@
             (let ((phony (format ".PHONY: %s\n" (match-string 1))))
               (unless (make-phony--already phony)
                 (insert phony)))
-          (error "Can't see a target that should be .PHONY")))
-    (error "This function is only designed for Makefiles")))
+          (user-error "Can't see a target that should be .PHONY")))
+    (user-error "This command is only designed for Makefiles")))
 
 (provide 'make-phony)
 
