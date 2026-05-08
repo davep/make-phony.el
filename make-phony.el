@@ -2,7 +2,7 @@
 ;; Copyright 2018-2026 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 1.3
+;; Version: 1.4.0
 ;; Keywords: convenience
 ;; URL: https://github.com/davep/make-phony.el
 ;; Package-Requires: ((emacs "24"))
