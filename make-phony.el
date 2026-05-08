@@ -41,7 +41,7 @@
   (if (derived-mode-p 'makefile-gmake-mode 'makefile-bsdmake-mode)
       (save-excursion
         (goto-char (line-beginning-position))
-        (if (looking-at (rx bol (group (+ (not (any ":")))) ":"))
+        (if (looking-at (rx bol (group (+ (intersection not-newline (not (any ":"))))) ":"))
             (let ((phony (format ".PHONY: %s\n" (match-string 1))))
               (unless (make-phony--already phony)
                 (insert phony)))
